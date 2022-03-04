@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS in_the_know;
+
+CREATE DATABASE in_the_know;
