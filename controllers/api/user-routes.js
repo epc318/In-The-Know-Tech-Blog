@@ -14,6 +14,7 @@ router.get("/", (req, res) => {
         })
 });
 
+// get a single user
 router.get("/:id", (req, res) => {
     user.findOne({
         attributes: { exclude: ["password"] },
@@ -23,7 +24,7 @@ router.get("/:id", (req, res) => {
     })
         .then(userInfo => {
             if(!userInfo) {
-                res.status(404).json({ message: "This user ID does not exist, please check input and try again" });
+                res.status(404).json({ message: "This user ID does not exist yet, please check input and try again" });
                 return;
             }
             res.json(userInfo);
@@ -37,7 +38,7 @@ router.get("/:id", (req, res) => {
 // create user/profile
 router.post("/", (req, res) => {
     user.create({
-        userID: req.body.userID,
+        pseudonym: req.body.pseudonym,
         email: req.body.email,
         password: req.body.password
     })
