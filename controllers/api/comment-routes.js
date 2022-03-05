@@ -32,7 +32,7 @@ router.get("/:id", (req, res) => {
     })
         .then(commentInfo => {
             if(!commentInfo) {
-                res.status(404).json({ message: "No comment found with this id" });
+                res.status(404).json({ message: "This comment ID does not exist yet, please check input and try again" });
                 return;
             }
             res.json(commentInfo);
