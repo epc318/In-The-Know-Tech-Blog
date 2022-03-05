@@ -41,14 +41,45 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/login", (req, res) => {
+router.get("/sign-in", (req, res) => {
     console.log(req.session.signedIn);
     if(req.session.signedIn) {
         res.redirect("/");
         return;
     }
-    res.render("login");
+    res.render("sign-in");
 })
+
+router.get("/post/:id", (req, res) => {
+    post.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: ["title", "created_at"],
+        include: [
+            {
+                model: comment,
+                attributes: ["id", "comment_input", "post_id", "user_id", "created_at"]
+            },
+            {
+                model: user,
+                attributes: ["pseudonym"]
+            }
+        ]
+    })
+    .then(postInfo => {
+        if(!postInfo) {
+            res.json(404).json({ message: "This post ID wasn't found, please check input and try again" });
+            return;
+        }
+        const post = postInfo.get({ plain: true });
+        res.render("singlePost", { post, signedIn: req.session.signedIn});
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 
 module.exports = router;

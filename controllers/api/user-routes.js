@@ -63,7 +63,7 @@ router.post("/", (req, res) => {
 })
 
 // user login route
-router.post("/login", (req, res) => {
+router.post("/sign-in", (req, res) => {
     user.findOne({
         where: {
             email: req.body.email
@@ -89,7 +89,7 @@ router.post("/login", (req, res) => {
 });
 
 // user logout route
-router.post("/logout", (req, res) => {
+router.post("/sign-in", (req, res) => {
     console.log(req.session.signedIn);
     if(req.session.signedIn) {
         req.session.destroy(() => {
