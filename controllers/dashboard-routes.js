@@ -31,5 +31,34 @@ router.get("/", authorize, (req, res) => {
     })
 });
 
+router.get("/edit/:id", authorize, (req, res) => {
+    post.findByPk(req.params.id, {
+        attributes: ["id", "title", "created_at"],
+        include: [
+            {
+                model: comment,
+                attributes: ["id", "comment_input", "post_id", "user_id", "created_at"],
+                include: {
+                    model: user,
+                    attributes: ["pseudonym"]
+                }
+            },
+            {
+                model: user,
+                attributes: ["pseudonym"]
+            }
+        ]
+    })
+        .then(postInfo => {
+            if(postInfo) {
+                const singlePost = postInfo.get({ plain: true });
+                res.render("edit-post", { singlePost, signedIn: true });
+            }
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        });
+});
+
 
 module.exports = router;
