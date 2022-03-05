@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>In The Know</title>
+        <link rel="stylesheet" href="stylesheets/style.css" />
+    </head>
+    <body>
+        <div>
+            <header>
+                <h1><a href="/">In The Know</a></h1>
+                <nav>
+                    {{#if signedIn}}
+                    <a href="/dashboard">Dashboard</a>
+                    <button id="signOut">Sign Out</button>
+                    {{else}}
+                    <a href="/sign-in">Sign In</a>
+                    {{/if}}
+                </nav>
+            </header>
+        </div>
+        <main>
+        {{! BODY INFO handlebar goes here}}
+        </main>
+        <footer>
+            <h2>Made by the In-The-Know Dev Team</h2>
+            <div>
+                &copy; 2022 In The Know, Inc.
+            </div>
+        </footer>
+    </body>
+</html>
