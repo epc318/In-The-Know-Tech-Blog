@@ -10,10 +10,20 @@ router.get("/", authorize, (req, res) => {
             user_id: req.session.user_id
         },
         attributes: ["id", "title", "created_at"],
-        incude: {
-            model: user,
-            attributes: ["pseudonym"]
-        }
+        incude: [
+            {
+                model: comment,
+                attributes: ["comment_input", "post_id", "user_id", "created_at"],
+                include: {
+                    model: user,
+                    attributes: ["pseudonym"]
+                }
+            },
+            {
+                model: user,
+                attributes: ["pseudonym"]
+            }
+        ]
     })
     .then(postInfo => {
         const feed = postInfo.map(post => post.get({ plain: true }));
