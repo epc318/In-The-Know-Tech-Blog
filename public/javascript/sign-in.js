@@ -1,4 +1,4 @@
-async function SignIn(event) {
+async function signIn(event) {
   event.preventDefault();
 
   const Email = document.querySelector("#user-email").value.trim();
@@ -18,4 +18,4 @@ async function SignIn(event) {
 };
 
 
-// *add login form to query selctor document.querySelector("").addEventListener("submit", SignIn);
+// *add login form to query selctor document.querySelector("").addEventListener("submit", signIn);
