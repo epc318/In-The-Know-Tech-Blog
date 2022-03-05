@@ -20,7 +20,13 @@ router.get("/:id", (req, res) => {
         attributes: { exclude: ["password"] },
         where: {
             id: req.params.id
-        }
+        },
+        include: [
+            {
+                model: post,
+                attributes: ["title", "created_at"]
+            },
+        ]
     })
         .then(userInfo => {
             if(!userInfo) {
