@@ -40,7 +40,6 @@ router.get("/", (req, res) => {
 });
 
 router.get("/sign-in", (req, res) => {
-    console.log(req.session.signedIn);
     if(req.session.signedIn) {
         res.redirect("/");
         return;
