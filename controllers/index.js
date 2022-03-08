@@ -5,4 +5,11 @@ const dashRoute = require("./dashboard-routes");
 
 
 router.use("/", homepageRoute);
-router.use("/", dashRoute);
+router.use("/api", apiRoute);
+router.use("/dashboard", dashRoute);
+
+router.use((req, res) => {
+    res.status(404).end();
+});
+
+module.exports = router;

@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const expHandlebar = require('express-handlebars');
-const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -17,7 +16,6 @@ const sess = {
     })
 };
 
-app.use(session(sess)); 
 const handlebars = expHandlebar.create({});
 
 const app = express();
@@ -29,11 +27,10 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(session(sess)); 
 
 // turn on routes
-app.use(routes);
-
+app.use(require('./controllers'));
 
 // acitvate server and database connection
 sequelize.sync({ force: false }).then(() => {
