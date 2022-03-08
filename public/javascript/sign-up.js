@@ -18,4 +18,4 @@ async function signUp(event) {
 }
 
 
-// *add sign up form to query selctor document.querySelector("").addEventListener("submit", signUp);
+document.querySelector(".formSignUp").addEventListener("submit", signUp);
