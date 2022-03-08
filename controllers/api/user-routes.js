@@ -24,7 +24,7 @@ router.get("/:id", (req, res) => {
         include: [
             {
                 model: post,
-                attributes: ["title", "created_at"]
+                attributes: ["title"]
             },
         ]
     })
@@ -38,7 +38,7 @@ router.get("/:id", (req, res) => {
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
-        });
+        })
 });
 
 // create user/profile
