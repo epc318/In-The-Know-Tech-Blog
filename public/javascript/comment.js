@@ -8,7 +8,7 @@ async function comment(event) {
 
     if(comment_input) {
         const response = await fetch("/api/comments", {
-            method: "Post",
+            method: "post",
             body: JSON.stringify({
                 post_id,
                 comment_input

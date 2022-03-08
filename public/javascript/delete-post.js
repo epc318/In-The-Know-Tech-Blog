@@ -7,7 +7,7 @@ async function deletePost(event) {
     ];
 
     const respond = await fetch(`/api/posts/${ID}`, {
-        method: "Delete"
+        method: "delete"
     });
     if (respond.ok) {
         document.location.replace("/dashboard/");
