@@ -17,7 +17,8 @@ else {
         {
         host: "localhost",
         dialect: "mysql",
-        port: 3001
+        // port 3306 is the default for mysql dialect
+        port: 3306
         },
     );
 }
