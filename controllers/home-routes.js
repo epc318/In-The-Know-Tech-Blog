@@ -17,8 +17,8 @@ router.get("/", (req, res) => {
                 attributes: [
                     "comment_input",
                     "post_id",
+                    "user_id",
                     "created_at",
-                    "user_id"
                 ],
                 include: {
                     model: user,
@@ -33,7 +33,7 @@ router.get("/", (req, res) => {
     })
      .then(postInfo => {
         const posts = postInfo.map(post => post.get({ plain: true }));
-        res.render("home", { posts });
+        res.render("home", { posts, signedIn: req.session.signedIn });
     })
     .catch(err => {
         console.log(err);
@@ -55,7 +55,7 @@ router.get("/post/:id", (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ["title", "created_at"],
+        attributes: ["title", "post_id", "post_input", "created_at"],
         include: [
             {
                 model: comment,
