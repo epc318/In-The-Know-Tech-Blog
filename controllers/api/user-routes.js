@@ -55,7 +55,8 @@ router.post("/", (req, res) => {
                 req.session.signedIn = true;
 
                 res.json(userInfo);
-            })})    
+            })
+        })    
         .catch(err => {
             console.log(err);
             res.status(404).json(err);
