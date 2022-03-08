@@ -16,4 +16,4 @@ async function createPost(event) {
 };
 
 
-//*add create post form to query selctor  document.querySelector("").addEventListener("submit", createPost);
+document.querySelector(".newPost").addEventListener("submit", createPost);

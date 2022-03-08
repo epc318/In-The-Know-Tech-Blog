@@ -1,1 +1,30 @@
+<section>
+  <h2>Create New review</h2>
 
+  <form class="newPost">
+    <div>
+        <label>Your Feed:</label>
+        <input type="text"/>
+    </div>
+    <div>
+        <label for="">Post:</label>
+        <input type="text">
+    </div>
+    <button type="submit" class="btn">Post</button>
+  </form>
+</section>
+
+{{#if posts.length}}
+<section>
+  <h2>Your Posts:</h2>
+  <ol>
+    {{#each posts as |post|}}
+        <li>
+        {{> postinfo post}}
+        </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+
+<script src="/javascript/create-post.js"></script>
