@@ -52,7 +52,7 @@ router.get("/edit/:id", authorize, (req, res) => {
         .then(postInfo => {
             if(postInfo) {
                 const singlePost = postInfo.get({ plain: true });
-                res.render("edit-post", { singlePost, signedIn: true });
+                res.render("editpost", { singlePost, signedIn: true });
             }
         })
         .catch(err => {
