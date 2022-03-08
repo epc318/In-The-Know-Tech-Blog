@@ -18,4 +18,4 @@ async function signIn(event) {
 };
 
 
-// *add login form to query selctor document.querySelector("").addEventListener("submit", signIn);
+document.querySelector(".formSignIn").addEventListener("submit", signIn);

@@ -5,20 +5,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>In The Know</title>
-        <link rel="stylesheet" href="stylesheets/style.css" />
     </head>
     <body>
         <div>
             <header>
                 <h1><a href="/">In The Know</a></h1>
                 <nav>
-                    <div></div>
-                        {{#if signedIn}}
+                    <div>
                         <a href="/dashboard">Dashboard</a>
                         <button id="signOut">Sign Out</button>
-                        {{else}}
                         <a href="/sign-in">Sign In</a>
-                        {{/if}}
                     </div>
                 </nav>
             </header>
@@ -32,7 +28,7 @@
                 </div>
             </footer>
         </div>
-    {{#if loggedIn}}
+    {{#if signedIn}}
     <script>src="/javascript/sign-out.js"</script>
     {{/if}}
     </body>
