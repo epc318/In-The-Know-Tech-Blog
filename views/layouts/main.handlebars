@@ -12,24 +12,28 @@
             <header>
                 <h1><a href="/">In The Know</a></h1>
                 <nav>
-                    {{#if signedIn}}
-                    <a href="/dashboard">Dashboard</a>
-                    {{else}}
-                    <a href="/sign-in">Sign In</a>
-                    <button id="signOut">Sign Out</button>
-                    {{/if}}
+                    <div></div>
+                        {{#if signedIn}}
+                        <a href="/dashboard">Dashboard</a>
+                        <button id="signOut">Sign Out</button>
+                        {{else}}
+                        <a href="/sign-in">Sign In</a>
+                        {{/if}}
+                    </div>
                 </nav>
             </header>
+            <main>
+            {{! BODY INFO handlebar goes here}}
+            </main>
+            <footer>
+                <h2>Made by the In-The-Know Dev Team</h2>
+                <div>
+                    &copy; 2022 In The Know, Inc.
+                </div>
+            </footer>
         </div>
-        <main>
-        {{! BODY INFO handlebar goes here}}
-        </main>
-        <footer>
-            <h2>Made by the In-The-Know Dev Team</h2>
-            <div>
-                &copy; 2022 In The Know, Inc.
-            </div>
-        </footer>
-        <script>src="/javascript/sign-out.js"</script>
+    {{#if loggedIn}}
+    <script>src="/javascript/sign-out.js"</script>
+    {{/if}}
     </body>
 </html>
