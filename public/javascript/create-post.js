@@ -4,10 +4,10 @@ async function createPost(event) {
     const postName = document.querySelector("#post-name").value;
 
     const response = await fetch("/api/posts", {
-        method: "post",
+        method: "POST",
         body: JSON.stringify({ postName }),
         headers: {
-            "credential": "appJson"
+            "Content-Type": "application/json"
         }
     });
     if(response.ok) {
