@@ -8,7 +8,7 @@ async function signIn(event) {
       const response = await fetch("/api/users/sign-in", {
           method: "post",
           body: JSON.stringify({ Email, password }),
-          headers: { "credential": "appJson"}
+          headers: { "Content-Type": "application/json" }
       });
 
       if(response.ok) {

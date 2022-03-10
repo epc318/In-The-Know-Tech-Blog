@@ -14,4 +14,4 @@ async function deletePost(event) {
     }
   }
 
- // *add delete form/class to query selctor document.querySelector("").addEventListener("click", deletePost);
+document.querySelector(".deletePost").addEventListener("click", deletePost);

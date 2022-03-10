@@ -1,6 +1,6 @@
 async function comment(event) {
     event.preventDefault();
-    const comment_input = document.querySelector("").value.trim();
+    const comment_input = document.querySelector("#comment").value.trim();
     const post_id = window.location.toString().split("/")
     [
         window.location.toString().split("/").length - 1
@@ -8,7 +8,7 @@ async function comment(event) {
 
     if(comment_input) {
         const response = await fetch("/api/comments", {
-            method: "post",
+            method: "POST",
             body: JSON.stringify({
                 post_id,
                 comment_input
@@ -24,4 +24,4 @@ async function comment(event) {
     }
 }
 
-//*add comment form to query selctor document.querySelector("").addEventListener("submit", comment);
+document.querySelector(".newComment").addEventListener("submit", comment);
